@@ -56,6 +56,7 @@ body {
   padding: 0;
 }
 
+
 .square {
   background: #fff;
   border: 1px solid #999;
@@ -72,7 +73,7 @@ body {
 }
 
 .square:hover {
-  background: #5ec2fc;
+  background: #72f86d;
 }
 
 .board-row:after {
@@ -91,4 +92,14 @@ body {
 
 .game-info {
   margin-left: 20px;
+}
+
+.btn-reset {
+  display: flex;
+  justify-content: center;
+  padding: 2px;
+  margin: 5px;
+  color: #FFF;
+  background-color: darkblue;
+  
 }

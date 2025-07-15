@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 
-
 type SquareProps = {
   value: string,
   onSquareClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
-
-
 
 function Square({ value, onSquareClick }: SquareProps) {
   return <button
@@ -17,26 +14,19 @@ function Square({ value, onSquareClick }: SquareProps) {
   </button>
 }
 
-
-export default function Board() {
-  const [squares, setSquares] = useState<Array<string>>(Array(9).fill(null));
-  const [xIsnext, setXIsNext] = useState<boolean>(true);
-
-
+function Board({ xIsNext, squares, onPlay }: { xIsNext: boolean, squares: Array<string>, onPlay: Function }) {
   function handleClick(index: number) {
     if (squares[index]) return;
+    if (winner) return alert(winner + " já venceu!");
 
     const nextSquares = squares.slice();
 
-
-    if (xIsnext) {
+    if (xIsNext) {
       nextSquares[index] = "X";
     } else {
       nextSquares[index] = "O";
     }
-
-    setXIsNext(!xIsnext);
-    setSquares(nextSquares);
+    onPlay(nextSquares);
   }
 
   const winner = calculateWinner(squares);
@@ -44,11 +34,11 @@ export default function Board() {
   if (winner) {
     status = "Vencedor: " + winner;
   } else {
-    status = "Próximo jogador: " + (xIsnext ? "X" : "O");
+    status = "Próximo jogador: " + (xIsNext ? "X" : "O");
   }
 
   return (
-    <>
+    <div className="container main">
       <div className="status">{status}</div>
       <div className="board-row">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} ></Square>
@@ -65,10 +55,11 @@ export default function Board() {
         <Square value={squares[7]} onSquareClick={() => handleClick(7)}></Square>
         <Square value={squares[8]} onSquareClick={() => handleClick(8)}></Square>
       </div>
-    </>
+      {winner ? (<button onClick={() => location.reload()} className="btn-reset">Reiniciar</button>) : ""}
+    </div>
   );
 
-  function calculateWinner(squares) {
+  function calculateWinner(squares : string[]) {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -91,4 +82,55 @@ export default function Board() {
 
     return null;
   }
+}
+
+export default function Game() {
+  const [xIsNext, setXIsNext] = useState<boolean>(true);
+  const [history, setHistory] = useState<Array<string[]>>([Array(9).fill(null)]);
+  const [currentIMove, setCurrentIMove] = useState<number>(0);
+  const currentSquares = history[history.length - 1];
+
+  function handlePlay(nextSquares: Array<string>) {
+    const nextHistory = [...history.slice(0, currentIMove + 1), nextSquares];
+    setHistory(nextHistory);
+    setCurrentIMove(nextHistory.length - 1);
+    setXIsNext(!xIsNext);
+  }
+
+  function jumpTo(nextMove: number) {
+    setCurrentIMove(nextMove);
+    setXIsNext(nextMove % 2 === 0);
+  }
+
+  const moves = history.map((squares, iMove) => {
+    let description;
+    if (iMove > 0) {
+      description = "Go to move #" + iMove;
+    } else {
+      description = "Go to game start";
+    }
+
+    if(!squares && iMove !== 0) return
+
+    
+    return (
+      <li key={iMove}>
+        <button onClick={() => jumpTo(iMove)}>{description}</button>
+      </li>
+    );
+
+  });
+
+  return (
+    <div className="game">
+      <div className="game-board">
+        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+      </div>
+      <div className="game-info">
+        <ol>{moves}</ol>
+      </div>
+
+
+    </div>
+  );
 }
