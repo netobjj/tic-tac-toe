@@ -6,6 +6,8 @@ type SquareProps = {
   onSquareClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
+
+
 function Square({ value, onSquareClick }: SquareProps) {
   return <button
     className="square"
@@ -13,13 +15,13 @@ function Square({ value, onSquareClick }: SquareProps) {
   >
     {value}
   </button>
-
 }
 
 
 export default function Board() {
   const [squares, setSquares] = useState<Array<string>>(Array(9).fill(null));
-  const [xIsnext, setXIsNext] = useState<boolean>(true)
+  const [xIsnext, setXIsNext] = useState<boolean>(true);
+
 
   function handleClick(index: number) {
     if (squares[index]) return;
@@ -33,14 +35,21 @@ export default function Board() {
       nextSquares[index] = "O";
     }
 
-    calculateWinner(squares);
     setXIsNext(!xIsnext);
     setSquares(nextSquares);
   }
 
+  const winner = calculateWinner(squares);
+  let status;
+  if (winner) {
+    status = "Vencedor: " + winner;
+  } else {
+    status = "Próximo jogador: " + (xIsnext ? "X" : "O");
+  }
+
   return (
     <>
-      <div className="title">neto</div>
+      <div className="status">{status}</div>
       <div className="board-row">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} ></Square>
         <Square value={squares[1]} onSquareClick={() => handleClick(1)} ></Square>
@@ -71,6 +80,15 @@ export default function Board() {
       [2, 4, 6],
     ];
 
-    
+    for (let i = 0; i < lines.length; i++) {
+      const [a, b, c] = lines[i];
+
+      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+        return squares[a];
+      }
+
+    }
+
+    return null;
   }
 }
