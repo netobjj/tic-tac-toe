@@ -1,8 +1,3 @@
-Claro! Aqui está um `README.md` simples e bem estruturado para o seu projeto React do jogo da velha com histórico de jogadas, utilizando TypeScript:
-
----
-
-````markdown
 # Jogo da Velha em React + TypeScript ♻️❌⭕️
 
 Este projeto é uma implementação completa de um **Jogo da Velha (Tic-Tac-Toe)** com histórico de jogadas, feito em **React 19** e **TypeScript**.
