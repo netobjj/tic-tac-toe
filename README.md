@@ -93,8 +93,3 @@ LinkedIn: \[seu-linkedin]
 GitHub: \[seu-usuario]
 
 ```
-
----
-
-Se quiser, posso adaptar o texto com seu nome, GitHub real ou outras instruções personalizadas. Deseja isso?
-```
