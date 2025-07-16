@@ -56,7 +56,7 @@ A aplicação será executada em `http://localhost:3000`.
 
 ## 📷 Preview
 
-![screenshot](https://via.placeholder.com/500x300?text=Exemplo+de+Jogo+da+Velha)
+![screenshot](image.png)
 
 ---
 
