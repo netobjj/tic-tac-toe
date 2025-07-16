@@ -1,14 +1,13 @@
-# Jogo da Velha em React + TypeScript ♻️❌⭕️
+# Jogo da Velha em React + TypeScript
 
-Este projeto é uma implementação completa de um **Jogo da Velha (Tic-Tac-Toe)** com histórico de jogadas, feito em **React 19** e **TypeScript**.
+Este projeto é uma implementação completa de um **Jogo da Velha (Tic-Tac-Toe)** com histórico de jogadas, feito em **React** e **TypeScript** pelo tutorial da doc oficial do React: [text](https://react.dev/learn/tutorial-tic-tac-toe)
 
 ---
 
 ## 🚀 Tecnologias utilizadas
 
-- React 19
+- React
 - TypeScript
-- React Scripts (Create React App)
 - HTML & CSS (básico)
 
 ---
@@ -18,7 +17,7 @@ Este projeto é uma implementação completa de um **Jogo da Velha (Tic-Tac-Toe)
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repo.git
+git clone https://github.com/netobjj/tic-tac-toe.git
 ````
 
 2. Instale as dependências:
@@ -34,17 +33,6 @@ npm start
 ```
 
 A aplicação será executada em `http://localhost:3000`.
-
----
-
-## 📁 Estrutura do Projeto
-
-```bash
-📦src
- ┣ 📜App.tsx         # Componente principal do jogo
- ┣ 📜index.tsx       # Ponto de entrada da aplicação
- ┗ 📜styles.css      # Estilos do jogo (opcional)
-```
 
 ---
 
@@ -72,14 +60,6 @@ A aplicação será executada em `http://localhost:3000`.
 
 ---
 
-## ⚙️ Scripts disponíveis
-
-* `npm start` – inicia o modo de desenvolvimento
-* `npm run build` – cria uma versão otimizada para produção
-* `npm test` – roda os testes (nenhum incluso por padrão)
-
----
-
 ## 📝 Licença
 
 Este projeto está licenciado sob a [MIT License](LICENSE).
@@ -88,8 +68,8 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 
 ## 👨‍💻 Autor
 
-Feito por **\[Seu Nome]**
-LinkedIn: \[seu-linkedin]
-GitHub: \[seu-usuario]
+Feito por **\[José Neto]**
+LinkedIn: \[https://www.linkedin.com/in/jose-euclides-da-silva-neto-06798116b/]
+GitHub: \[netobjj]
 
 ```
