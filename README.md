@@ -1,6 +1,6 @@
 # Jogo da Velha em React + TypeScript
 
-Este projeto é uma implementação completa de um **Jogo da Velha (Tic-Tac-Toe)** com histórico de jogadas, feito em **React** e **TypeScript** pelo tutorial da doc oficial do React: [text](https://react.dev/learn/tutorial-tic-tac-toe)
+Este projeto é uma implementação completa de um **Jogo da Velha (Tic-Tac-Toe)** com histórico de jogadas, feito em **React** e **TypeScript** pelo tutorial da doc oficial do React: [tic-tac-toe](https://react.dev/learn/tutorial-tic-tac-toe)
 
 ---
 
